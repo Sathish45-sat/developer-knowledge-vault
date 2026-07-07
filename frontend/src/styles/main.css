@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+  --bg-color: #0d1117; /* GitHub Dark style dark blue */
+  --card-bg: #161b22;
+  --card-hover: #1c2128;
+  --text-primary: #e6edf3;
+  --text-secondary: #7d8590;
+  --primary-color: #2f81f7; /* Developer blue */
+  --primary-hover: #1f6feb;
+  --accent-color: #238636; /* Success green */
+  --accent-hover: #2ea043;
+  --danger-color: #f85149;
+  --danger-hover: #da3633;
+  --border-radius: 8px; /* Sharper developer look */
+  --border-color: #30363d;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.7);
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  --transition: all 0.2s ease-in-out;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Developer Inputs */
+input, textarea, select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  background-color: #010409;
+  color: var(--text-primary);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+textarea.code-input {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background-color: #1e1e1e; /* VSCode style dark */
+  color: #ce9178; /* Classic string color */
+  min-height: 180px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(47, 129, 247, 0.3);
+}
+
+/* Beautiful buttons */
+button {
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+button:disabled {
+  background-color: var(--border-color);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+/* Form layouts */
+.form-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-container h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
