@@ -44,7 +44,7 @@ public class UserController {
     private UserResponse toUserResponse(User user) {
         UserResponse response = new UserResponse();
         response.setId(user.getId());
-        response.setUserName(user.getUsername());
+        response.setUsername(user.getUsername());
         response.setEmail(user.getEmail());
         response.setBio(user.getBio());
         response.setSkills(user.getSkills());

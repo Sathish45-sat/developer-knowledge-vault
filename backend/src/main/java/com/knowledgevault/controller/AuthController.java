@@ -28,7 +28,7 @@ public class AuthController{
         User registeredUser = authService.register(user);
         UserResponse userResponse=new UserResponse();
         userResponse.setEmail(registeredUser.getEmail());
-        userResponse.setUserName(registeredUser.getUsername());
+        userResponse.setUsername(registeredUser.getUsername());
         userResponse.setId(registeredUser.getId());
         return ResponseEntity.ok(userResponse);
 

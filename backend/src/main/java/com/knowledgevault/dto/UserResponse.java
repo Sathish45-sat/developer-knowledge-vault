@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class UserResponse {
     private String id;
-    private String userName;
+    private String username;
     private String email;
     private String bio;
     private List<String> skills;
