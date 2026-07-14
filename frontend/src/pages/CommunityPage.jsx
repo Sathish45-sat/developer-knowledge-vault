@@ -63,6 +63,7 @@ function CommunityPage() {
           Knowledge Vault
         </div>
         <div className="nav-links">
+          <Link to="/dashboard">Dashboard</Link>
           <Link to="/community">Community</Link>
           <Link to="/profile">Profile</Link>
           <Link to="/home">My Notes</Link>

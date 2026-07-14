@@ -33,7 +33,7 @@ const DashboardPage = () => {
           <Link to="/community">Community</Link>
           <Link to="/profile">Profile</Link>
           <Link to="/home">My Notes</Link>
-          <a href="#" onClick={logout}>Logout</a>
+          <Link to="/" onClick={logout}>Logout</Link>
         </div>
       </nav>
 

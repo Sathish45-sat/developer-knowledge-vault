@@ -37,7 +37,7 @@ const ProfilePage = () => {
     const updateRequest = {
       bio: profile.bio,
       experienceLevel: profile.experienceLevel,
-      skills: profile.skills.split(",").map(s => s.trim()).filter(s => s),
+      skills: profile.skills ? profile.skills.split(",").map(s => s.trim()).filter(s => s) : [],
       socialLinks: {
         linkedinUrl: profile.linkedinUrl,
         githubUrl: profile.githubUrl
@@ -65,10 +65,11 @@ const ProfilePage = () => {
           Knowledge Vault
         </div>
         <div className="nav-links">
+          <Link to="/dashboard">Dashboard</Link>
           <Link to="/community">Community</Link>
           <Link to="/profile">Profile</Link>
           <Link to="/home">My Notes</Link>
-          <a href="#" onClick={logout}>Logout</a>
+          <Link to="/" onClick={logout}>Logout</Link>
         </div>
       </nav>
 

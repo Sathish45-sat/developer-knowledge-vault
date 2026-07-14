@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import CommunityPage from "../pages/CommunityPage";
 import AddTechNotePage from "../pages/AddTechNotePage";
 import EditTechNotePage from "../pages/EditTechNotePage";
+import DashboardPage from "../pages/DashboardPage";
 import ProtectedRoutes from "./ProtectedRoutes";
 
 function AppRoutes() {
@@ -16,6 +17,7 @@ function AppRoutes() {
       <Route path="/register" element={<RegisterPage />} />
       
       <Route element={<ProtectedRoutes />}>
+        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/community" element={<CommunityPage />} />
