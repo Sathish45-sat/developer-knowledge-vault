@@ -57,7 +57,7 @@ public class TechNoteController {
     public ResponseEntity<TechNote> getNote(
             @AuthenticationPrincipal UserDetailsImpl currentUser,
             @PathVariable String id) {
-        return ResponseEntity.ok(techNoteService.getNoteById(currentUser.getId(), id));
+        return ResponseEntity.ok(techNoteService.getNoteByIdPublic(currentUser.getId(), id));
     }
 
     @PutMapping("/{id}")

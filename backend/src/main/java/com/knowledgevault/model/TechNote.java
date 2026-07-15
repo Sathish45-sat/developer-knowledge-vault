@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 @Document(collection = "technotes")
 public class TechNote {
@@ -43,6 +45,7 @@ public class TechNote {
     private Date lastAccessed;
 
     private int accessCount = 0;
+    private Set<String> visitedUserIds = new HashSet<>();
 
     // Getters
     public String getId() { return id; }
@@ -59,6 +62,7 @@ public class TechNote {
     public Date getCreatedAt() { return createdAt; }
     public Date getLastAccessed() { return lastAccessed; }
     public int getAccessCount() { return accessCount; }
+    public Set<String> getVisitedUserIds() { return visitedUserIds; }
 
     // Setters
     public void setId(String id) { this.id = id; }
@@ -75,4 +79,5 @@ public class TechNote {
     public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
     public void setLastAccessed(Date lastAccessed) { this.lastAccessed = lastAccessed; }
     public void setAccessCount(int accessCount) { this.accessCount = accessCount; }
+    public void setVisitedUserIds(Set<String> visitedUserIds) { this.visitedUserIds = visitedUserIds; }
 }

@@ -1,12 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 function TechNoteCard({ techNote, onRevisit, onEdit, onDelete }) {
   const { user } = useContext(AuthContext);
+  const [isViewing, setIsViewing] = useState(false);
 
   // Safely check what the ID field is on both backend domains.
   const currentUserId = user ? (user.id || user._id) : null;
   const isOwner = techNote.userId && currentUserId && (String(techNote.userId) === String(currentUserId));
+
+  const handleRevisitClick = async () => {
+    if (isViewing) return;
+    setIsViewing(true);
+    try {
+      await onRevisit(techNote._id || techNote.id);
+    } catch (err) {
+      console.error("Error revisiting note:", err);
+    } finally {
+      setIsViewing(false);
+    }
+  };
 
   return (
     <div className="card">
@@ -38,10 +51,14 @@ function TechNoteCard({ techNote, onRevisit, onEdit, onDelete }) {
           </div>
         )}
 
-        <p className="stats">🚀 Revisited {techNote.accessCount || 0} times</p>
+        <p className="stats">🚀 Views: {techNote.accessCount || 0}</p>
 
-        <button className="btn-revisit" onClick={() => onRevisit(techNote._id || techNote.id)}>
-          Revisit Note
+        <button 
+          className="btn-revisit" 
+          onClick={handleRevisitClick} 
+          disabled={isViewing}
+        >
+          {isViewing ? "Loading..." : "View Note"}
         </button>
 
         {/* ✅ ONLY OWNER CAN SEE EDIT/DELETE */}

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.HashSet;
 
 @Service
 public class TechNoteService {
@@ -54,6 +55,20 @@ public class TechNoteService {
 
         // Increment access/revisit count and save
         note.setAccessCount(note.getAccessCount() + 1);
+        return techNoteRepository.save(note);
+    }
+
+    public TechNote getNoteByIdPublic(String userId, String noteId) {
+        TechNote note = techNoteRepository.findById(noteId)
+                .orElseThrow(() -> new RuntimeException("Note not found"));
+
+        if (note.getVisitedUserIds() == null) {
+            note.setVisitedUserIds(new HashSet<>());
+        }
+
+        note.getVisitedUserIds().add(userId);
+        note.setAccessCount(note.getVisitedUserIds().size());
+
         return techNoteRepository.save(note);
     }
 
