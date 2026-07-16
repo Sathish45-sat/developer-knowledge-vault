@@ -41,4 +41,6 @@ const uploadImage = async (file) => {
   return res.data.imageUrl;
 };
 
-export default { getTechNotes, getMyTechNotes, revisitTechNote, createTechNote, updateTechNote, deleteTechNote, uploadImage };
+const techNoteService = { getTechNotes, getMyTechNotes, revisitTechNote, createTechNote, updateTechNote, deleteTechNote, uploadImage };
+
+export default techNoteService;
